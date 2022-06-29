@@ -5,13 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
-public class AuthGitFromAllur {
+public class SearchPageInGitHubFromAllur {
     @Test
     @AllureId("10758")
-    @DisplayName("Авторизация в GitHub")
+    @DisplayName("Поиск страницы в GitHub")
     @Owner("allure8")
     public  void testGithubAuth() {
         step("Откройте страницу  Github");
+        step("Нажать авторизоваться");
+        step("Ввести логин");
+        step("Ввести пароль");
         step("Ввести в поле поиска selenide и нажать Enter");
         step("Перейти в раздел Wiki проекта");
         step("Убедится, что в списке страниц (Pages) есть страница SoftAssertions");
