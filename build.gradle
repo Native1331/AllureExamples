@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.qameta.allure" version "2.9.6"
 }
 
 group 'org.example'
@@ -21,6 +22,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-api:$slf4jVersion",
             "org.assertj:assertj-core:$assertjVersion",
+             'io.qameta.allure:allure-selenide:2.17.3',
             "org.aeonbits.owner:owner:$ownerVersion",
             "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
     )
@@ -29,7 +31,19 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
 }
-
+allure {
+    report {
+        version.set("2.17.3") //версия Allure Report (https://github.com/allure-framework/allure2)
+    }
+    adapter {
+        aspectjWeaver.set(true) // обработка аннотации @Step
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.17.3") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+            }
+        }
+    }
+}
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
