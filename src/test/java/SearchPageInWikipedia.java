@@ -9,6 +9,7 @@ public class SearchPageInWikipedia {
     @Test
     @DisplayName("Поиск страницы в Wikipedia")
     @Tag("test")
+    @AllureId("10802")
     public  void testGithubAuth() {
         step("Откройте страницу  Wikipedia");
         step("Нажать авторизоваться");
